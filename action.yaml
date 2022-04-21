@@ -15,7 +15,7 @@ runs:
 #     # Audit the Repository
     - name: Audit project dependencies
       #run: ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
-      run: set HELLO=$(cat setenv.py)
+      run: HELLO=$(cat ${{ github.workspace }}/setenv.py)
       shell: bash
 
 
