@@ -19,5 +19,5 @@ runs:
       shell: bash
 
     - name: check env variable
-      run: echo ${{ env.HELLO }}
+      run: echo ${{ github.workspace }}/${{ env.HELLO }}
       shell: bash
