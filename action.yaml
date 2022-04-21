@@ -14,5 +14,9 @@ runs:
 
 #     # Audit the Repository
     - name: Audit project dependencies
-      run: ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
+      #run: ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
+      run: python3 setenv.py
       shell: bash
+
+    - name: check env variable
+      run: echo ${{ env.HELLO }}
