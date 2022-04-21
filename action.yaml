@@ -12,11 +12,15 @@ runs:
       run: pip3 install ossie
       shell: bash
 
+    - name:run
+      run: ls
+      shell: bash
 #     # Audit the Repository
     - name: Audit project dependencies
       #run: ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
       run: python3 ${{ github.workspace }}/setenv.py
       shell: bash
+
 
     - name: check env variable
       run: echo ${{ env.HELLO }}
