@@ -12,8 +12,8 @@ runs:
       run: pip3 install ossie
       shell: bash
 
-    - name:run
-      run: ls
+    - name: run
+      run: ls ${{ github.workspace }}
       shell: bash
       
 #     # Audit the Repository
