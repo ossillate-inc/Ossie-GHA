@@ -20,3 +20,4 @@ runs:
 
     - name: check env variable
       run: echo ${{ env.HELLO }}
+      shell: bash
