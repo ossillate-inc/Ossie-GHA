@@ -16,13 +16,16 @@ runs:
     - name: Audit project dependencies
       run: |
         ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
-        echo 'ISSUE_REQUIRED=$(cat /temp/issue_required)' >> $GITHUB_ENV
-	echo 'ISSUE_TITLE=$(cat /temp/issue_title)' >> $GITHUB_ENV
-	echo 'ISSUE_BODY=$(cat /temp/issue_body)' >> $GITHUB_ENV	
+        # echo 'ISSUE_REQUIRED=$(cat /tmp/issue_required.txt)' >> $GITHUB_ENV
+	# echo 'ISSUE_TITLE=$(cat /tmp/issue_title.txt)' >> $GITHUB_ENV
+	# echo 'ISSUE_BODY=$(cat /tmp/issue_body.txt)' >> $GITHUB_ENV
+	echo 'ISSUE_REQUIRED=YES' >> $GITHUB_ENV
+	echo 'ISSUE_TITLE=DEMO ISSUE' >> $GITHUB_ENV
+	echo 'ISSUE_BODY="DEMO BODY"' >> $GITHUB_ENV
       shell: bash
 
     - name: create issue if ISSUE_REQUIRED is set
-      if: ${{ env.ISSUE_REQUIRED }} == YES
+      if: ${{ env.ISSUE_REQUIRED }} == "YES"
       uses: rishabhgupta/git-action-issue@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
