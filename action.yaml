@@ -17,7 +17,7 @@ runs:
       #run: ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
       run: |
         echo "HELLO<<EOF" >> $GITHUB_ENV
-        cat ${{ github.workspace }}/setenv.py >> $GITHUB_ENV
+        echo "${cat ${{ github.workspace }}/setenv.py}" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
       shell: bash
 
