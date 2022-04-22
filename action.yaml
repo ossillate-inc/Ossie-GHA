@@ -21,7 +21,7 @@ runs:
         echo "ISSUE_REQUIRED=$(cat /tmp/issue_required.txt)" >> $GITHUB_ENV
         echo "ISSUE_TITLE=$(cat /tmp/issue_title.txt)" >> $GITHUB_ENV
         echo "ISSUE_BODY<<EOF" >> $GITHUB_ENV
-        echo "![pckj.dev](https://packj.dev/static/img/box-package.svg)" >> $GITHUB_ENV
+        echo "<img src=\"https://packj.dev/static/img/box-package.svg\" width=\"80\"" >> $GITHUB_ENV
         echo "$(cat /tmp/issue_body.txt)" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
       shell: bash
