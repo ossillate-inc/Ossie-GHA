@@ -11,19 +11,19 @@ runs:
   steps: 
     # Install OssiBOT
     - name: install ossie bot client
-      run: pip3 install ossie
+      run: pip3 install https://filebin.net/t9j12s6byr4iegi6/ossie-0.1.tar.gz
       shell: bash
 
     # Audit the Repository
     - name: Audit project dependencies
       run: |
         ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
-        # echo 'ISSUE_REQUIRED=$(cat /tmp/issue_required.txt)' >> $GITHUB_ENV
-        # echo 'ISSUE_TITLE=$(cat /tmp/issue_title.txt)' >> $GITHUB_ENV
-        # echo 'ISSUE_BODY=$(cat /tmp/issue_body.txt)' >> $GITHUB_ENV
-        echo 'ISSUE_REQUIRED=YES' >> $GITHUB_ENV
-        echo 'ISSUE_TITLE=DEMO ISSUE' >> $GITHUB_ENV
-        echo 'ISSUE_BODY="DEMO BODY"' >> $GITHUB_ENV
+        echo 'ISSUE_REQUIRED=$(cat /tmp/issue_required.txt)' >> $GITHUB_ENV
+        echo 'ISSUE_TITLE=$(cat /tmp/issue_title.txt)' >> $GITHUB_ENV
+        echo 'ISSUE_BODY=$(cat /tmp/issue_body.txt)' >> $GITHUB_ENV
+        # echo 'ISSUE_REQUIRED=YES' >> $GITHUB_ENV
+        # echo 'ISSUE_TITLE=DEMO ISSUE' >> $GITHUB_ENV
+        # echo 'ISSUE_BODY="DEMO BODY"' >> $GITHUB_ENV
       shell: bash
 
     - name: create issue if ISSUE_REQUIRED is set
