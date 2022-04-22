@@ -29,5 +29,5 @@ runs:
       uses: rishabhgupta/git-action-issue@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-	title: ${{ env.ISSUE_TITLE }}
-	body: ${{ env.ISSUE_BODY }}
+        title: ${{ env.ISSUE_TITLE }}
+        body: ${{ env.ISSUE_BODY }}
