@@ -7,20 +7,24 @@ inputs:
 runs:
   using: composite
   steps: 
-        # Install OssiBOT
+    # Install OssiBOT
     - name: install ossie bot client
       run: pip3 install ossie
       shell: bash
 
-#     # Audit the Repository
+    # Audit the Repository
     - name: Audit project dependencies
-      #run: ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
       run: |
-        echo "HELLO<<EOF" >> $GITHUB_ENV
-        echo '$(cat ${{ github.workspace }}/setenv.py)' >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
+        ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
+        echo 'ISSUE_REQUIRED=$(cat /temp/issue_required)' >> $GITHUB_ENV
+	echo 'ISSUE_TITLE=$(cat /temp/issue_title)' >> $GITHUB_ENV
+	echo 'ISSUE_BODY=$(cat /temp/issue_body)' >> $GITHUB_ENV	
       shell: bash
 
-    - name: check env variable
-      run: echo ${{ env.HELLO }}
-      shell: bash
+    - name: create issue if ISSUE_REQUIRED is set
+      if: ${{ env.ISSUE_REQUIRED }} == YES
+      uses: rishabhgupta/git-action-issue@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+	title: ${{ env.ISSUE_TITLE }}
+	body: ${{ env.ISSUE_BODY }}
