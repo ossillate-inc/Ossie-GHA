@@ -18,11 +18,11 @@ runs:
     - name: Audit project dependencies
       run: |
         ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
-				echo "ISSUE_REQUIRED=$(cat /tmp/issue_required.txt)" >> $GITHUB_ENV
+        echo "ISSUE_REQUIRED=$(cat /tmp/issue_required.txt)" >> $GITHUB_ENV
         echo "ISSUE_TITLE=$(cat /tmp/issue_title.txt)" >> $GITHUB_ENV
-			  echo "ISSUE_BODY<<EOF" >> $GITHUB_ENV
+        echo "ISSUE_BODY<<EOF" >> $GITHUB_ENV
         echo "$(cat /tmp/issue_body.txt)" >> $GITHUB_ENV
-			  echo "EOF" >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
       shell: bash
 
     - name: create issue if ISSUE_REQUIRED is set
