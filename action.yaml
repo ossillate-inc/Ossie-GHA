@@ -11,7 +11,7 @@ runs:
   steps: 
     # Install OssiBOT
     - name: install ossie bot client
-      run: pip3 install https://filebin.net/t9j12s6byr4iegi6/ossie-0.1.tar.gz
+      run: pip3 install ossie
       shell: bash
 
     # Audit the Repository
