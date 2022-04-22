@@ -4,6 +4,8 @@ name: OSSIBOT Audit
 inputs: 
   OSSIEBOT_ID:
     required: true
+  REPO_TOKEN:
+    required: true
 runs:
   using: composite
   steps: 
@@ -28,6 +30,6 @@ runs:
       if: ${{ env.ISSUE_REQUIRED }} == "YES"
       uses: rishabhgupta/git-action-issue@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ inputs.REPO_TOKEN }}
         title: ${{ env.ISSUE_TITLE }}
         body: ${{ env.ISSUE_BODY }}
