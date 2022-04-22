@@ -20,10 +20,7 @@ runs:
         ossie audit --id ${{ inputs.OSSIEBOT_ID }} --project ${{ github.workspace }}
         echo "ISSUE_REQUIRED=$(cat /tmp/issue_required.txt)" >> $GITHUB_ENV
         echo "ISSUE_TITLE=$(cat /tmp/issue_title.txt)" >> $GITHUB_ENV
-        echo "ISSUE_BODY=\"$(cat /tmp/issue_body.txt)\"" >> $GITHUB_ENV
-        # echo 'ISSUE_REQUIRED=YES' >> $GITHUB_ENV
-        # echo 'ISSUE_TITLE=DEMO ISSUE' >> $GITHUB_ENV
-        # echo 'ISSUE_BODY="DEMO BODY"' >> $GITHUB_ENV
+        echo "ISSUE_BODY=$(cat /tmp/issue_body.txt)" 
       shell: bash
 
     - name: create issue if ISSUE_REQUIRED is set
