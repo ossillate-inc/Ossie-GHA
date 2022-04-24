@@ -1,1 +1,1 @@
-# OSSIE GitHub Actions plugin to audit dependecies
+# Ossie GitHub Actions plugin to audit dependecies
