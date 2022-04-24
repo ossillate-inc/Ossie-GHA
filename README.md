@@ -1,1 +1,1 @@
-# OSSIBOT GitHub Actions plugin to audit dependecies
+# OSSIE GitHub Actions plugin to audit dependecies
